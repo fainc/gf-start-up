@@ -1,0 +1,32 @@
+server:
+  address: ":8000"
+  graceful: true
+  gracefulTimeout: 10
+  serverAgent: "Server"
+  logPath: "logs/server"
+
+database:
+  logger:
+    path: "logs/database"
+  default:
+    link: "mysql:root2:12345678@tcp(127.0.0.1:3306)/user_center"
+    prefix: ""
+
+gfcli:
+  build:
+    name: "main"
+    arch: "amd64"
+    system: "linux,darwin,windows"
+    mod: "none"
+    cgo: 0
+    version: "v1.0.0"
+    path: "./bin"
+  gen:
+    dao:
+      - link: "mysql:root2:12345678@tcp(127.0.0.1:3306)/primary"
+        prefix: ""
+        tables: ""
+        tablesEx: ""
+        descriptionTag: true
+jwt:
+  secret: ""
