@@ -1,7 +1,7 @@
 server:
   address: ":8000"
-  graceful: true
-  gracefulTimeout: 10
+  graceful: false
+  gracefulTimeout: 5
   serverAgent: "Server"
   logPath: "logs/server"
 
