@@ -2,6 +2,7 @@ package boot
 
 import (
 	"errors"
+
 	"github.com/gogf/gf/crypto/gmd5"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
@@ -13,7 +14,7 @@ const APPID = "test"
 const PASSWORD = "test"
 
 func Update() error {
-	//todo 集中update热更新控制
+	// todo 集中update热更新控制
 	passwordStr, _ := gmd5.Encrypt(PASSWORD)
 	res := g.Client().ContentJson().PostContent(URL, g.Map{
 		"VERSION":  VERSION,

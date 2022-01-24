@@ -1,10 +1,11 @@
 package api
 
 import (
+	"time"
+
 	"github.com/fainc/gowork/library/jwt"
 	"github.com/fainc/gowork/library/response"
 	"github.com/gogf/gf/net/ghttp"
-	"time"
 )
 
 var Hello = helloApi{}

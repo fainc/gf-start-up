@@ -2,9 +2,11 @@ package router
 
 import (
 	"fmt"
+
 	"gf-start-up/app/api"
 	"gf-start-up/boot"
 	"gf-start-up/middleware"
+
 	"github.com/fainc/gowork/library/cors"
 	"github.com/fainc/gowork/library/response"
 	"github.com/gogf/gf/frame/g"
@@ -22,7 +24,7 @@ func init() {
 		group.Middleware(middleware.Jwt.JwtAuth)
 		group.ALL("/hello", api.Hello)
 	})
-	s.BindHandler("/update-hook", update) //hook被动触发更新
+	s.BindHandler("/update-hook", update) // hook被动触发更新
 	s.BindHandler("/version", func(r *ghttp.Request) {
 		response.Json.Success(r, boot.VERSION)
 	})
