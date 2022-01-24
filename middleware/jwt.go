@@ -23,10 +23,13 @@ func (j *jwtStruct) JwtAuth(r *ghttp.Request) {
 	Jwt.standardAuth(r, scopes, whiteTables, true)
 	r.Middleware.Next()
 }
-
 func (*jwtStruct) standardAuth(r *ghttp.Request, scopes g.SliceStr, tables g.SliceStr, catch bool) {
 	whiteTable := garray.NewStrArrayFrom(tables)
-	uuid, scopeKey, err := jwt.Helper.Parse(r, scopes)
+	uuid, scopeKey, err := jwt.Helper.Parse(jwt.ParseParams{
+		Token:  r.GetHeader("Authorization"),
+		Scopes: scopes,
+		Secret: g.Cfg().GetString("jwt.secret"),
+	})
 	if err != nil {
 		if !whiteTable.ContainsI(r.RequestURI) && catch {
 			response.Json.Authorization(r, err.Error())
