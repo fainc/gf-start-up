@@ -1,6 +1,6 @@
 server:
   address: ":8000"
-  graceful: false
+  graceful: true
   gracefulTimeout: 5
   serverAgent: "Server"
   logPath: "logs/server"
@@ -11,7 +11,7 @@ database:
   default:
     link: "mysql:root2:12345678@tcp(127.0.0.1:3306)/user_center"
     prefix: ""
-
+    debug: true
 gfcli:
   build:
     name: "main"
