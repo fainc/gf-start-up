@@ -1,3 +1,3 @@
-# GoFrame v1.16.6 Project Startup 
+# GoFrame v1.16.7 Project Startup 
 
 https://goframe.org
